@@ -23,6 +23,13 @@ export default function SignInScreen({ setToken }) {
 
 	const handleSignIn = async () => {
 		setLoading(true);
+		if (!password) {
+			setError('you forget the password !');
+		}
+		if (!email) {
+			setError('email is required !');
+		}
+
 		if (email !== '' && password !== '') {
 			try {
 				const response = await axios.post(
@@ -52,14 +59,14 @@ export default function SignInScreen({ setToken }) {
 			keyboardShouldPersistTaps="handled"
 		>
 			{loading ? (
-				<View className="flex h-[80vh] flex-1 justify-center items-center">
+				<View className="flex flex-1 h-screen justify-center items-center">
 					<ActivityIndicator size="large" color="red" />
 				</View>
 			) : (
-				<View className="flex flex-1 h-[80vh] justify-around items-center">
+				<View className="flex flex-1 h-screen justify-around items-center">
 					<View className="flex justify-center items-center">
 						<Image
-							className="h-20 w-20 my-8 "
+							className="h-20 w-20 my-4 "
 							source={require('../assets/logo.png')}
 						/>
 						<Text className="text-center font-bold text-2xl text-gray-500">
@@ -76,7 +83,6 @@ export default function SignInScreen({ setToken }) {
 							placeholder="email"
 							value={email}
 							editable={true}
-							autoFocus={true}
 							blurOnSubmit={true}
 						/>
 						<View className="relative ">

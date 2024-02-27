@@ -82,14 +82,14 @@ export default function SignUpScreen({ setToken }) {
 			keyboardShouldPersistTaps="handled"
 		>
 			{loading ? (
-				<View className="flex h-[80vh] flex-1 justify-center items-center">
+				<View className="flex h-screen flex-1 justify-center items-center">
 					<ActivityIndicator size="large" color="red" />
 				</View>
 			) : (
-				<View className="flex flex-1 h-[90vh] justify-around items-center px-8">
+				<View className="flex flex-1 h-screen justify-around items-center px-8">
 					<View className="flex justify-center items-center">
 						<Image
-							className="h-20 w-20  "
+							className="h-20 w-20 my-4  "
 							source={require('../assets/logo.png')}
 						/>
 						<Text className="text-center font-bold text-2xl text-gray-500">
@@ -106,7 +106,6 @@ export default function SignUpScreen({ setToken }) {
 							placeholder="email"
 							value={email}
 							editable={true}
-							autoFocus={true}
 							blurOnSubmit={true}
 						/>
 						<TextInput
@@ -127,6 +126,7 @@ export default function SignUpScreen({ setToken }) {
 							placeholder="Describe yourself in a few words..."
 							value={description}
 							multiline={true}
+							numberOfLines={4}
 							textAlignVertical="top"
 							maxLength={150}
 						/>
@@ -213,7 +213,7 @@ export default function SignUpScreen({ setToken }) {
 								navigation.navigate('SignIn');
 							}}
 						>
-							<Text className="text-gray-500">No account ? Register</Text>
+							<Text className="text-gray-500 py-4">No account ? Register</Text>
 						</TouchableOpacity>
 					</View>
 				</View>
