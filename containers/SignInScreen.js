@@ -1,3 +1,4 @@
+import LottieView from 'lottie-react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
 import {
@@ -60,7 +61,12 @@ export default function SignInScreen({ setToken }) {
 		>
 			{loading ? (
 				<View className="flex flex-1 h-screen justify-center items-center">
-					<ActivityIndicator size="large" color="red" />
+					<LottieView
+						className="h-40 w-40"
+						source={require('../assets/animation.json')}
+						autoPlay
+						loop
+					/>
 				</View>
 			) : (
 				<View className="flex flex-1 h-screen justify-around items-center">
