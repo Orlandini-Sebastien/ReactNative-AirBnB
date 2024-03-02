@@ -14,6 +14,8 @@ import RoomScreen from './containers/RoomScreen';
 import BtnGoBack from './components/BtnGoBack';
 import SplashScreen from './containers/SplashScreen';
 import Logo from './components/Logo';
+import AroundMeScreen from './containers/AroundMeScreen';
+import ProfileScreen from './containers/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -103,6 +105,31 @@ export default function App() {
 												}}
 											>
 												{() => <RoomScreen />}
+											</Stack.Screen>
+										</Stack.Navigator>
+									)}
+								</Tab.Screen>
+
+								<Tab.Screen
+									name="TabAround"
+									options={{
+										tabBarLabel: 'Around Me',
+										tabBarIcon: ({ color, size }) => (
+											<AntDesign name={'user'} size={size} color={color} />
+										),
+									}}
+								>
+									{() => (
+										<Stack.Navigator>
+											<Stack.Screen
+												name="Around Me"
+												options={{
+													headerTitleAlign: 'center',
+													headerTitle: () => <Logo />,
+													headerLeft: null,
+												}}
+											>
+												{() => <AroundMeScreen setToken={setToken} />}
 											</Stack.Screen>
 										</Stack.Navigator>
 									)}
