@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import HomeScreen from './containers/HomeScreen';
-import ProfileScreen from './containers/ProfileScreen';
+
 import SignInScreen from './containers/SignInScreen';
 import SignUpScreen from './containers/SignUpScreen';
 import SettingsScreen from './containers/SettingsScreen';
@@ -14,7 +14,6 @@ import RoomScreen from './containers/RoomScreen';
 import BtnGoBack from './components/BtnGoBack';
 import SplashScreen from './containers/SplashScreen';
 import Logo from './components/Logo';
-
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -85,9 +84,9 @@ export default function App() {
 											<Stack.Screen
 												name="Home"
 												options={{
+													headerTitleAlign: 'center',
 													title: '',
-													headerTintColor:'red',
-												
+													headerTintColor: 'red',
 
 													headerTitle: () => <Logo />,
 												}}
@@ -98,20 +97,12 @@ export default function App() {
 											<Stack.Screen
 												name="Room"
 												options={{
+													headerTitleAlign: 'center',
 													headerTitle: () => <Logo />,
 													headerLeft: null,
 												}}
 											>
 												{() => <RoomScreen />}
-											</Stack.Screen>
-
-											<Stack.Screen
-												name="Profile"
-												options={{
-													title: 'User Profile',
-												}}
-											>
-												{() => <ProfileScreen />}
 											</Stack.Screen>
 										</Stack.Navigator>
 									)}
